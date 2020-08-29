@@ -33,7 +33,7 @@ class ValidPassword:
 
     def _check(self, pw):
         if not pw:
-            raise ValidationError(error_code=_.PW_FORMAT_INVALID)
+            raise ValueError(error_code=_.PW_FORMAT_INVALID)
         if not isinstance(pw, str):
             raise TypeError("== Password must be String ==")
         return self
@@ -41,7 +41,7 @@ class ValidPassword:
     def _scan(self, pw):
         for txt in pw:
             if not self._pw_map(get=txt):
-                raise ValidationError(error_code=_.PW_FORMAT_INVALID)
+                raise ValueError("== Invalid password ==")
         return pw
 
     def _pw_map(self, get):
