@@ -33,7 +33,7 @@ class ValidPassword:
 
     def _check(self, pw):
         if not pw:
-            raise ValueError(error_code=_.PW_FORMAT_INVALID)
+            raise ValueError("== Password can't be null ==")
         if not isinstance(pw, str):
             raise TypeError("== Password must be String ==")
         return self
